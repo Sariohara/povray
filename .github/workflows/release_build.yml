@@ -278,7 +278,7 @@ jobs:
         cp -R "distribution/scenes/."                                   "installer/user/scenes"
 
     - name: 'Retrieve Artifacts for Installer Build'
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: artifact_installer_tree
         path: installer
@@ -322,21 +322,21 @@ jobs:
 
     - name: 'Retrieve Installer Artifacts for Release'
       if: ${{ needs.build_windows_installer.status == 'success' }}
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: artifact_installer
         path: installer
 
     - name: 'Retrieve Source Documentation Artifacts for Release'
       if: ${{ needs.build_sourcedoc.status == 'success' }}
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: artifact_sourcedoc
         path: sourcedoc
 
     - name: 'Retrieve Unix Source Package Artifacts for Release'
       if: ${{ needs.build_unix_package.status == 'success' }}
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: artifact_unix_package
         path: unix_package
